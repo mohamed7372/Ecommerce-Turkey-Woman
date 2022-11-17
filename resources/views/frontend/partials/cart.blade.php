@@ -10,10 +10,11 @@ if (auth()->user() != null) {
 }
 
 @endphp
-<a href="javascript:void(0)" class="d-flex align-items-center text-reset h-100" data-toggle="dropdown"
+
+<!-- d-flex align-items-center text-reset -->
+<a href="javascript:void(0)" class="d-flex align-items-center text-reset" data-toggle="dropdown"
     data-display="static">
-    <i class="la la-shopping-cart la-2x opacity-80"></i>
-    <span class="flex-grow-1 ml-1">
+    <i class="la la-shopping-cart la-2x opacity-80">
         @if (isset($cart) && count($cart) > 0)
             <span class="badge badge-primary badge-inline badge-pill cart-count">
                 {{ count($cart) }}
@@ -21,6 +22,8 @@ if (auth()->user() != null) {
         @else
             <span class="badge badge-primary badge-inline badge-pill cart-count">0</span>
         @endif
+    </i>
+    <span class="flex-grow-1 ml-1">
         <span class="nav-box-text d-none d-xl-block opacity-70">{{ translate('Cart') }}</span>
     </span>
 </a>

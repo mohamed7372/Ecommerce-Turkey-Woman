@@ -161,7 +161,7 @@
     </div>
 </div>
 <!-- END Top Bar -->
-<header class="@if(get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white border-bottom shadow-sm">
+<header class="@if(get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white border-bottom shadow-sm nav-bar-search">
     <div class="position-relative logo-bar-area z-1">
         <div class="container">
             <div class="d-flex align-items-center">
@@ -205,11 +205,11 @@
                                     <input type="text" class="border-0 border-lg form-control" id="search" name="keyword" @isset($query)
                                         value="{{ $query }}"
                                     @endisset placeholder="{{translate('I am shopping for...')}}" autocomplete="off">
-                                    <div class="input-group-append d-none d-lg-block">
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="la la-search la-flip-horizontal fs-18"></i>
-                                        </button>
-                                    </div>
+                                    <!-- <div class="input-group-append d-none d-lg-block"> -->
+                                    <button class="" type="submit">
+                                        <i class="la la-search la-flip-horizontal fs-18"></i>
+                                    </button>
+                                    <!-- </div> -->
                                 </div>
                             </div>
                         </form>
@@ -235,20 +235,22 @@
                     </div>
                 </div>
 
-                <div class="d-none d-lg-block ml-3 mr-0">
+                <div class="d-none d-lg-block ml-3 mr-0 icon-nav-bar">
                     <div class="" id="compare">
                         @include('frontend.partials.compare')
                     </div>
                 </div>
 
-                <div class="d-none d-lg-block ml-3 mr-0">
+                <div class="d-none d-lg-block ml-3 mr-0 icon-nav-bar">
                     <div class="" id="wishlist">
                         @include('frontend.partials.wishlist')
                     </div>
                 </div>
 
-                <div class="d-none d-lg-block  align-self-stretch ml-3 mr-0" data-hover="dropdown">
-                    <div class="nav-cart-box dropdown h-100" id="cart_items">
+                
+                <div class="d-none d-lg-block ml-3 mr-0 icon-nav-bar">
+                <!-- <div class="d-none d-lg-block  align-self-stretch ml-3 mr-0 icon-nav-bar" data-hover="dropdown"> -->
+                    <div class="nav-cart-box dropdown" id="cart_items">
                         @include('frontend.partials.cart')
                     </div>
                 </div>
@@ -268,7 +270,7 @@
         @endif
     </div>
     @if ( get_setting('header_menu_labels') !=  null )
-        <div class="bg-white border-top border-gray-200 py-1">
+        <div class="bg-white border-top border-gray-200 py-1 nav-bar-other-link">
             <div class="container">
                 <ul class="list-inline mb-0 pl-0 mobile-hor-swipe text-center">
                     @foreach (json_decode( get_setting('header_menu_labels'), true) as $key => $value)

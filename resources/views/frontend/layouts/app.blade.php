@@ -58,6 +58,8 @@
     <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css') }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css') }}">
 
+    <link rel="stylesheet" href="{{ static_asset('assets/css/new_style.css') }}">
+    
 
     <script>
         var AIZ = AIZ || {};
@@ -106,6 +108,7 @@
         }
 
         .pac-container { z-index: 100000; }
+
     </style>
 
 @if (get_setting('google_analytics') == 1)
@@ -154,7 +157,7 @@
 
         @yield('content')
 
-        @include('frontend.inc.footer')
+        <!-- @include('frontend.inc.footer') -->
 
     </div>
 

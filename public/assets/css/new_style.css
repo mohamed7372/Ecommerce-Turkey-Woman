@@ -1,0 +1,120 @@
+/* start nav bar search  */
+.nav-bar-search .input-group > input {
+    border-radius: 12px !important;
+    background-color: #F9F9F9;
+    position: relative;
+}
+
+.nav-bar-search .input-group > button {
+    border-radius: 12px;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    left: 10px;
+    top: calc(50% - 9px);
+}
+
+.nav-bar-search .input-group > button > i {
+    color: #DE68C9;
+}
+
+.icon-nav-bar > div > a{
+    display: flex;
+    flex-direction: column;
+}
+.icon-nav-bar > div > a > i {
+    position: relative;
+}
+.icon-nav-bar > div > a > i > .badge {
+    width: 22px;
+    height: 22px;
+    background-color: #F6DADF;
+    border: 2px solid white;
+    color: black;
+    position: absolute;
+    left: -8px;
+    top: -8px;
+}
+
+.icon-nav-bar > div > a > span > .nav-box-text {
+    width: fit-content !important;
+    height: fit-content !important;
+}
+
+.nav-bar-other-link a:hover {
+    color: #DE68C9 !important;
+    border-radius: 10px;
+    background-color: #fcf0fa;
+    cursor: pointer;
+}
+/* end nav bar search  */
+
+/* start home story  */
+.home-banner-area .home-story > li > a > img{
+    /* width: 100%;
+    height: 100%; */
+    border-image: linear-gradient(to right bottom, 
+        rgba(98, 80, 161, 1),
+        rgba(209, 34, 91, 1),
+        rgba(249, 156, 43, 1),
+        rgba(251, 189, 85, 1));
+    overflow: hidden;
+    box-sizing: content-box;
+    border-width: 4px;
+    border-style: solid;
+    border-image-slice: 1;
+    border-radius: 250px !important;
+}
+/* end home story  */
+
+/* start section pub 1 */
+#section-pub1 > section > .container {
+    display: flex;
+    justify-content: space-between;
+}
+#section-pub1 > section > .container > div:first-of-type {
+    width: 320px;
+}
+#section-pub1 > section > .container > div:last-of-type {
+    width: calc(100% - 350px);
+}
+
+.pub1-content .link-pub1{
+    position: relative !important;
+}
+
+.pub1-content .link-pub1 .titles-pub1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: flex-end; */
+    position: absolute !important;
+    left: 15%;
+    color: white;
+}
+.pub1-content .link-pub1 .pub1{
+    top: calc(50% - 50px);
+}
+.pub1-content .link-pub1 .pub2{
+    top: calc(50% + 20px);
+}
+.pub1-content .link-pub1 .titles-pub1 h1{
+    font-size: 5em;
+}
+.pub1-content .link-pub1 .pub2 h2{
+    font-size: 3em;
+}
+.pub1-content .link-pub1 .pub2 button{
+    font-size: 18px;
+    padding: 5px 40px;
+    border: none;
+    font-weight: bold;
+    background-color: white;
+    color: black;
+}
+/* end section pub 1 */
+
+/* for test ==========>>>  */
+.moh {
+    background-color: red !important;
+}
