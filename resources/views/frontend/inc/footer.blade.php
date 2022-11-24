@@ -1,4 +1,4 @@
-<section class="bg-white border-top mt-auto">
+<!-- <section class="bg-white border-top mt-auto">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-lg-3 col-md-6">
@@ -27,9 +27,9 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="bg-dark py-5 text-light footer-widget">
+<section class="bg-dark py-5 text-light footer-widget" style="background-color: white !important">
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-xl-4 text-center text-md-left">
@@ -71,47 +71,69 @@
             </div>
             <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
                 <div class="text-center text-md-left mt-4">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        {{ translate('Contact Info') }}
+                    <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
+                        كيف يمكننا مساعدتك؟
                     </h4>
                     <ul class="list-unstyled">
-                        <li class="mb-2">
-                           <span class="d-block opacity-30">{{ translate('Address') }}:</span>
-                           <span class="d-block opacity-70">{{ get_setting('contact_address',null,App::getLocale()) }}</span>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            الصفحة الرئيسية
                         </li>
-                        <li class="mb-2">
-                           <span class="d-block opacity-30">{{translate('Phone')}}:</span>
-                           <span class="d-block opacity-70">{{ get_setting('contact_phone') }}</span>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            العضوية
                         </li>
-                        <li class="mb-2">
-                           <span class="d-block opacity-30">{{translate('Email')}}:</span>
-                           <span class="d-block opacity-70">
-                               <a href="mailto:{{ get_setting('contact_email') }}" class="text-reset">{{ get_setting('contact_email')  }}</a>
-                            </span>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            التسوق
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            الدفع
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            الإلغاء و الإرجاع
+                        </li>   
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            المتابعة
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            النقل و التوصيل
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-2 col-md-4">
                 <div class="text-center text-md-left mt-4">
-                    <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
-                        {{ get_setting('widget_one',null,App::getLocale()) }}
+                    <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
+                        شركتنا
                     </h4>
                     <ul class="list-unstyled">
-                        @if ( get_setting('widget_one_labels',null,App::getLocale()) !=  null )
-                            @foreach (json_decode( get_setting('widget_one_labels',null,App::getLocale()), true) as $key => $value)
-                            <li class="mb-2">
-                                <a href="{{ json_decode( get_setting('widget_one_links'), true)[$key] }}" class="opacity-50 hov-opacity-100 text-reset">
-                                    {{ $value }}
-                                </a>
-                            </li>
-                            @endforeach
-                        @endif
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            عن الشركة
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            أسواقنا
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            أسواقنا 
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            مسؤولية مشتركة
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            الخصوصية و الأمن
+                        </li>   
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            خدمة الزبائن
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            أسئلة مكررة
+                        </li>
+                        <li class="mb-2 fs-15" style="color: rgba(34, 34, 34, 1)">
+                            اتصل بنا
+                        </li>
                     </ul>
                 </div>
             </div>
 
-            <div class="col-md-4 col-lg-2">
+            <!-- <div class="col-md-4 col-lg-2">
                 <div class="text-center text-md-left mt-4">
                     <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
                         {{ translate('My Account') }}
@@ -162,7 +184,7 @@
                         </a>
                     </div>
                 @endif
-            </div>
+            </div> -->
         </div>
     </div>
 </section>

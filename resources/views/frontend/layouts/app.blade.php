@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css') }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css') }}">
 
-    <link rel="stylesheet" href="{{ static_asset('assets/css/new_style.css') }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/new-styles-b.css') }}">
     
 
     <script>
@@ -157,7 +157,7 @@
 
         @yield('content')
 
-        <!-- @include('frontend.inc.footer') -->
+        @include('frontend.inc.footer')
 
     </div>
 

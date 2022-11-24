@@ -38,9 +38,19 @@
                         </div>
                     @endif
                     @if (count($featured_categories) > 0)
-                        <ul class="list-unstyled mb-0 row gutters-15 home-story">
+                        <div class="gutters-10 aiz-carousel half-outside-arrow" data-items="9" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='false'>
                             @foreach ($featured_categories as $key => $category)
-                                <!-- <li class="minw-0 col-4 col-md mt-3"> -->
+                            <div class="carousel-box">
+                                <div class="minw-0 home-story">
+                                    <a href="">
+                                        <img src="{{ static_asset('assets/img/bg.jpg') }}" alt="">
+                                    </a>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                        <!-- <ul class="list-unstyled mb-0 row gutters-15 home-story">
+                            @foreach ($featured_categories as $key => $category)
                                 <li class="minw-0 col-4 col-md">
                                     <a href="{{ route('products.category', $category->slug) }}" class="d-block p-2 text-reset">
                                         <img
@@ -51,11 +61,10 @@
                                             height="78"
                                             onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder-rect.jpg') }}';"
                                         >
-                                        <!-- <div class="text-truncate fs-12 fw-600 mt-2 opacity-70">{{ $category->getTranslation('name') }}</div> -->
                                     </a>
                                 </li>
                             @endforeach
-                        </ul>
+                        </ul> -->
                     @endif
                 </div>
 
@@ -165,32 +174,6 @@
     </section>
     @endif
 
-
-    <!-- <div id="section_newest">
-        @if (count($newest_products) > 0)
-            <section class="mb-4">
-                <div class="container">
-                    <div class="px-2 py-4 px-md-4 py-md-3 bg-white shadow-sm rounded">
-                        <div class="d-flex mb-3 align-items-baseline border-bottom">
-                            <h3 class="h5 fw-700 mb-0">
-                                <span class="border-bottom border-primary border-width-2 pb-3 d-inline-block">
-                                    {{ translate('New Products') }}
-                                </span>
-                            </h3>
-                        </div>
-                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="6" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
-                            @foreach ($newest_products as $key => $new_product)
-                            <div class="carousel-box">
-                                @include('frontend.partials.product_box_1',['product' => $new_product])
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </section>   
-        @endif
-    </div> -->
-
     <div id="section-pub1">
         <section class="mb-4">
             <div class="container">
@@ -211,26 +194,179 @@
         </section> 
     </div>
 
-    {{-- Featured Section --}}
-    <div id="section_featured">
-
+    <div id="section_newest">
+        @if (count($newest_products) > 0)
+            <section class="mb-4">
+                <div class="container">
+                    <div class="px-2 py-4 px-md-4 py-md-3 rounded newest-content-items">
+                        <div class="d-flex mb-3">
+                            <h2>وصل حديثاً</h2>
+                            <h4>انتقل لعرض جميع المنتجات</h4>
+                        </div>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
+                            @foreach ($newest_products as $key => $new_product)
+                            <div class="carousel-box">
+                                @include('frontend.partials.product_box_1',['product' => $new_product])
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>   
+        @endif
     </div>
 
-    {{-- Best Selling  --}}
-    <div id="section_best_selling">
-
+    <div id="section_pub3">
+        <section class="mb-4">
+            <div class="container">
+                <div class="rounded">
+                    @include('frontend.partials.product_pub_2')
+                    <div class="details">
+                        <button>تصفيات الموسم</button>
+                        <button>
+                            <span>منتجات 1</span>
+                            <i class="la la-heart-o opacity-80"></i>
+                        </button>
+                        <button>
+                            <span>منتجات 2</span>
+                            <i class="la la-heart-o opacity-80"></i>
+                        </button>
+                        <button>
+                            <span>منتجات 3</span>
+                            <i class="la la-heart-o opacity-80"></i>
+                        </button>
+                        <button>
+                            <span>منتجات 4</span>
+                            <i class="la la-heart-o opacity-80"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section> 
     </div>
 
+    <div id="section_brand">
+        @if (count($newest_products) > 0)
+            <section class="mb-4">
+                <div class="container">
+                    <div class="px-2 py-4 px-md-4 py-md-3 rounded brand-content-items">
+                        <div class="d-flex mb-3">
+                            <h2>براندا وينس</h2>
+                            <h4>احصل على الهام مميز لأحدث الموضات من خلال هذا التجميعات</h4>
+                        </div>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="4" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
+                            @foreach ($newest_products as $key => $new_product)
+                            <div class="carousel-box">
+                                @include('frontend.partials.product_box_2',['product' => $new_product])
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>   
+        @endif
+    </div>
+
+    <div id="section_most_sell">
+        @if (count($newest_products) > 0)
+            <section class="mb-4">
+                <div class="container">
+                    <div class="px-2 py-4 px-md-4 py-md-3 rounded most-sell-content-items">
+                        <div class="d-flex mb-3">
+                            <h2>الأكثر مبيعا هذا الإسبوع</h2>
+                            <h4>اضمن أناقتك مع القطع الرائعة لهذا الموسم!</h4>
+                        </div>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
+                            @foreach ($newest_products as $key => $new_product)
+                            <div class="carousel-box">
+                                @include('frontend.partials.product_box_3',['product' => $new_product])
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>   
+        @endif
+    </div>
+
+    <div id="section_pub4">
+        <section class="mb-4">
+            <div class="container">
+                <div class="rounded">
+                    @include('frontend.partials.product_pub_3')
+                </div>
+            </div>
+        </section> 
+    </div>
+
+    <div id="section_story">
+        <div id="section_newest">
+            @if (count($newest_products) > 0)
+                <section class="mb-4">
+                    <div class="container">
+                        <div class="px-2 py-4 px-md-4 py-md-3 rounded newest-content-items">
+                            <div class="d-flex mb-3">
+                                <h2>ام سي ستوري</h2>
+                                <h4>لا تنس أن تكمل تركيباتك الجميلة بابتسامة &#10084;</h4>
+                            </div>
+                            <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="4" data-xl-items="5" data-lg-items="3"  data-md-items="2" data-sm-items="1" data-xs-items="2" data-arrows='true'>
+                                @foreach ($newest_products as $key => $new_product)
+                                <div class="carousel-box">
+                                    @include('frontend.partials.product_box_1',['product' => $new_product])
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ static_asset('assets/img/bg.jpg') }}" alt="">
+                            <div class="details">
+                                <h5>معطف شتاء</h5>
+                                <h2>صناعة بريطانية</h2>
+                                <button>تسوق الأن</button>
+                            </div>
+                        </div>  
+                    </div>
+                    <div class="container">
+                        <h5><a href="">
+                            عرض كل المنتجات
+                        </a></h5>
+                    </div>
+                </section>   
+            @endif
+        </div>
+    </div>
+    
+    <div id="section_article">
+        @if (count($newest_products) > 0)
+            <section class="mb-4">
+                <div class="container">
+                    <div class="px-2 py-4 px-md-4 py-md-3 rounded brand-content-items">
+                        <div class="d-flex mb-3">
+                            <h2>مقالات ام سي</h2>
+                            <h4>اتجاهات الموسم الجديد ، أنماط المشاهير ، افعل ذلك بنفسك ، مجموعات خاصة وأكثر من ذلك بكثير في المحتوى التحريري الخاص بنا. تحقق من منشورات مدونتنا ولقطاتنا الخاصة وأحدث محتوى فيديو أعددناه لك.</h4>
+                        </div>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="4" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
+                            @foreach ($newest_products as $key => $new_product)
+                            <div class="carousel-box">
+                                @include('frontend.partials.product_box_4',['product' => $new_product])
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </section>   
+        @endif
+    </div>
     <!-- Auction Product -->
-    @if(addon_is_activated('auction'))
+    <!-- @if(addon_is_activated('auction'))
         <div id="auction_products">
 
         </div>
-    @endif
+    @endif -->
 
 
 
-    {{-- Banner Section 2 --}}
+    <!-- {{-- Banner Section 2 --}}
     @if (get_setting('home_banner2_images') != null)
     <div class="mb-4">
         <div class="container">
@@ -248,12 +384,12 @@
             </div>
         </div>
     </div>
-    @endif
+    @endif -->
 
-    {{-- Category wise Products --}}
+    <!-- {{-- Category wise Products --}}
     <div id="section_home_categories">
 
-    </div>
+    </div> -->
 
     {{-- Classified Product --}}
     @if(get_setting('classified_product') == 1)
@@ -330,12 +466,12 @@
     </div>
     @endif
 
-    {{-- Best Seller --}}
+    <!-- {{-- Best Seller --}}
     <div id="section_best_sellers">
 
-    </div>
+    </div> -->
 
-    {{-- Top 10 categories and Brands --}}
+    <!-- {{-- Top 10 categories and Brands --}}
     @if (get_setting('top10_categories') != null && get_setting('top10_brands') != null)
     <section class="mb-4">
         <div class="container">
@@ -421,7 +557,7 @@
             </div>
         </div>
     </section>
-    @endif
+    @endif -->
 
 @endsection
 
