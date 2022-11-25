@@ -50,18 +50,18 @@
         <div class="container">
             @if ($carts && count($carts) > 0)
                 <div class="row">
-                    <div class="col-xxl-8 col-xl-10 mx-auto">
-                        <div class="shadow-sm bg-white p-3 p-lg-4 rounded text-left">
+                    <div class="col-9 mx-auto">
+                        <!-- start product cart  -->
+                        <div class="shadow-sm bg-white rounded text-left" style="padding: 16px 16px 0">
                             <div class="mb-4">
-                                <div class="row gutters-5 d-none d-lg-flex border-bottom mb-3 pb-3">
-                                    <div class="col-md-5 fw-600">{{ translate('Product') }}</div>
-                                    <div class="col fw-600">{{ translate('Price') }}</div>
-                                    <div class="col fw-600">{{ translate('Tax') }}</div>
-                                    <div class="col fw-600">{{ translate('Quantity') }}</div>
-                                    <div class="col fw-600">{{ translate('Total') }}</div>
-                                    <div class="col-auto fw-600">{{ translate('Remove') }}</div>
+                                <div class="row d-flex justify-content-between mb-3 px-3">
+                                    <button type='button' class="fs-18 btn btn-secondary">حذف المحدد</button>
+                                    <button type='button' class="fs-18 d-flex align-items-center btn btn-outline-secondary">
+                                        <i class="las la-arrow-right"></i>
+                                        <p style="margin-right: 10px" class="mb-0">استكمال التسوق</p>
+                                    </button>
                                 </div>
-                                <ul class="list-group list-group-flush">
+                                <ul class="list-group list-group-flush" style="list-style: none;">
                                     @php
                                         $total = 0;
                                     @endphp
@@ -76,100 +76,212 @@
                                                 $product_name_with_choice = $product->getTranslation('name') . ' - ' . $cartItem['variation'];
                                             }
                                         @endphp
-                                        <li class="list-group-item px-0 px-lg-3">
+                                        <li class="px-0">
+                                            <div class="card p-3">
                                             <div class="row gutters-5">
-                                                <div class="col-lg-5 d-flex">
-                                                    <span class="mr-2 ml-0">
+                                                <!-- start image and her details  -->
+                                                <div class="col-lg-5 d-flex align-items-center">
+                                                    <input type="checkbox" name="" id=""
+                                                            style="width: 17px; height: 17px;cursor: pointer; border-radius: 0;">
+                                                    <!-- start image product  -->
+                                                    <span class="mr-3 ml-3">
                                                         <img src="{{ uploaded_asset($product->thumbnail_img) }}"
-                                                            class="img-fit size-60px rounded"
+                                                            style="width: 60px; height: 100px"
                                                             alt="{{ $product->getTranslation('name') }}">
                                                     </span>
-                                                    <span class="fs-14 opacity-60">{{ $product_name_with_choice }}</span>
+                                                    <!-- end image product  -->
+                                                    <!-- start info product  -->
+                                                    <div class="detail-products">
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>الماركة:</span>
+                                                            <span>اسم الماركة</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">{{ $product_name_with_choice }}</p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>اللون:</span>
+                                                            <span>أسود</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>المقاس:</span>
+                                                            <span>S</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>العرض:</span>
+                                                            <span>لايوجد</span>
+                                                        </p>
+                                                    </div>
+                                                    <!-- end info product  -->
                                                 </div>
-
-                                                <div class="col-lg col-4 order-1 order-lg-0 my-3 my-lg-0">
-                                                    <span
-                                                        class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Price') }}</span>
-                                                    <span
-                                                        class="fw-600 fs-16">{{ cart_product_price($cartItem, $product, true, false) }}</span>
-                                                </div>
-                                                <div class="col-lg col-4 order-2 order-lg-0 my-3 my-lg-0">
-                                                    <span
-                                                        class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Tax') }}</span>
-                                                    <span
-                                                        class="fw-600 fs-16">{{ cart_product_tax($cartItem, $product) }}</span>
-                                                </div>
-
-                                                <div class="col-lg col-6 order-4 order-lg-0">
+                                                <!-- end image and her details  -->
+                                                <!-- start select amount  -->
+                                                <div class="col-lg col-6 order-4 order-lg-0 d-flex align-items-center">
                                                     @if ($cartItem['digital'] != 1 && $product->auction_product == 0)
-                                                        <div
-                                                            class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
-                                                            <button
-                                                                class="btn col-auto btn-icon btn-sm btn-circle btn-light"
-                                                                type="button" data-type="minus"
-                                                                data-field="quantity[{{ $cartItem['id'] }}]">
-                                                                <i class="las la-minus"></i>
-                                                            </button>
-                                                            <input type="number" name="quantity[{{ $cartItem['id'] }}]"
-                                                                class="col border-0 text-center flex-grow-1 fs-16 input-number"
-                                                                placeholder="1" value="{{ $cartItem['quantity'] }}"
-                                                                min="{{ $product->min_qty }}"
-                                                                max="{{ $product_stock->qty }}"
-                                                                onchange="updateQuantity({{ $cartItem['id'] }}, this)">
-                                                            <button
-                                                                class="btn col-auto btn-icon btn-sm btn-circle btn-light"
-                                                                type="button" data-type="plus"
-                                                                data-field="quantity[{{ $cartItem['id'] }}]">
-                                                                <i class="las la-plus"></i>
-                                                            </button>
+                                                        <div class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
+                                                            <p class="mb-0 fs-18 fw-500" style="margin-left: 16px">العدد</p>
+                                                            <select class="form-select" 
+                                                                style="width: 68px; height: 38px;border: 1px solid #B0B3B2; 
+                                                                    border-radius: 4px;cursor: pointer;background-color: rgba(217, 217, 217, 0.2);
+                                                                    padding-left: 5px;padding-right: 5px;">
+                                                            <!-- <select name="" id="" class="custom-select" style="width: 68px; height: 38px"> -->
+                                                                <option value="1">1</option>
+                                                                <option value="2">2</option>
+                                                                <option value="3">3</option>
+                                                                <option value="4">4</option>
+                                                            </select>
                                                         </div>
                                                     @elseif($product->auction_product == 1)
                                                         <span class="fw-600 fs-16">1</span>
                                                     @endif
                                                 </div>
-                                                <div class="col-lg col-4 order-3 order-lg-0 my-3 my-lg-0">
-                                                    <span
-                                                        class="opacity-60 fs-12 d-block d-lg-none">{{ translate('Total') }}</span>
-                                                    <span
-                                                        class="fw-600 fs-16 text-primary">{{ single_price(cart_product_price($cartItem, $product, false) * $cartItem['quantity']) }}</span>
+                                                <!-- end select amount  -->
+                                                <!-- start price  -->
+                                                <div class="col-lg col-4 order-3 order-lg-0 my-3 my-lg-0 d-flex align-items-center">
+                                                    <div>
+                                                        <p class="mb-0" style="opacity: .5; color:#222222"><del>300.00 ر.س</del></p>
+                                                        <p class="mb-0 fs-22" style='color: #DE68C9;'>250.00 ر.س</p>
+                                                    </div>
                                                 </div>
-                                                <div class="col-lg-auto col-6 order-5 order-lg-0 text-right">
+                                                <!-- end price  -->
+                                                <!-- start delete button  -->
+                                                <div class="col-lg-auto col-6 order-5 order-lg-0 text-right d-flex align-items-center">
                                                     <a href="javascript:void(0)"
                                                         onclick="removeFromCartView(event, {{ $cartItem['id'] }})"
-                                                        class="btn btn-icon btn-sm btn-soft-primary btn-circle">
-                                                        <i class="las la-trash"></i>
+                                                        class="btn btn-icon">
+                                                        <i class="fs-22 las la-times"></i>
                                                     </a>
                                                 </div>
+                                                <!-- end delete button  -->
+                                            </div>
                                             </div>
                                         </li>
                                     @endforeach
                                 </ul>
                             </div>
-
-                            <div class="px-3 py-2 mb-4 border-top d-flex justify-content-between">
-                                <span class="opacity-60 fs-15">{{ translate('Subtotal') }}</span>
-                                <span class="fw-600 fs-17">{{ single_price($total) }}</span>
-                            </div>
-                            <div class="row align-items-center">
-                                <div class="col-md-6 text-center text-md-left order-1 order-md-0">
-                                    <a href="{{ route('home') }}" class="btn btn-link">
-                                        <i class="las la-arrow-left"></i>
-                                        {{ translate('Return to shop') }}
-                                    </a>
+                        </div>
+                        <!-- end product cart  -->
+                        <!-- start last product visit  -->
+                        <div class="shadow-sm bg-white rounded text-left" style="padding: 16px 16px 0">
+                            <div class="mb-4">
+                                <div class="row mb-3 px-3 d-flex align-items-center">
+                                    <i style="margin-left: 5px" class="fs-18 lar la-star"></i>
+                                    <span class="fs-18">منتجات تصفحتها مؤخرا</span>
                                 </div>
-                                <div class="col-md-6 text-center text-md-right">
-                                    @if (Auth::check())
-                                        <a href="{{ route('checkout.shipping_info') }}" class="btn btn-primary fw-600">
-                                            {{ translate('Continue to Shipping') }}
-                                        </a>
-                                    @else
-                                        <button class="btn btn-primary fw-600"
-                                            onclick="showCheckoutModal()">{{ translate('Continue to Shipping') }}</button>
-                                    @endif
-                                </div>
+                                <ul class="list-group list-group-flush" style="list-style: none;">
+                                    @php
+                                        $total = 0;
+                                    @endphp
+                                    @foreach ($carts as $key => $cartItem)
+                                        @php
+                                            $product = \App\Models\Product::find($cartItem['product_id']);
+                                            $product_stock = $product->stocks->where('variant', $cartItem['variation'])->first();
+                                            // $total = $total + ($cartItem['price'] + $cartItem['tax']) * $cartItem['quantity'];
+                                            $total = $total + cart_product_price($cartItem, $product, false) * $cartItem['quantity'];
+                                            $product_name_with_choice = $product->getTranslation('name');
+                                            if ($cartItem['variation'] != null) {
+                                                $product_name_with_choice = $product->getTranslation('name') . ' - ' . $cartItem['variation'];
+                                            }
+                                        @endphp
+                                        <li class="px-0">
+                                            <div class="card p-3">
+                                            <div class="row gutters-5">
+                                                <!-- start image and her details  -->
+                                                <div class="col-4 d-flex align-items-center">
+                                                    <!-- start image product  -->
+                                                    <span class="mr-3 ml-3">
+                                                        <img src="{{ uploaded_asset($product->thumbnail_img) }}"
+                                                            style="width: 60px; height: 100px"
+                                                            alt="{{ $product->getTranslation('name') }}">
+                                                    </span>
+                                                    <!-- end image product  -->
+                                                    <!-- start info product  -->
+                                                    <div class="detail-products">
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>الماركة:</span>
+                                                            <span>اسم الماركة</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">{{ $product_name_with_choice }}</p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>اللون:</span>
+                                                            <span>أسود</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>المقاس:</span>
+                                                            <span>S</span>
+                                                        </p>
+                                                        <p class="mb-0 fs-14 opacity-60">
+                                                            <span>العرض:</span>
+                                                            <span>لايوجد</span>
+                                                        </p>
+                                                    </div>
+                                                    <!-- end info product  -->
+                                                </div>
+                                                <!-- end image and her details  -->
+                                                <div class="col-2"></div>
+                                                <!-- start price  -->
+                                                <div class="col-2 d-flex align-items-center">
+                                                    <div>
+                                                        <p class="mb-0" style="opacity: .5; color:#222222"><del>300.00 ر.س</del></p>
+                                                        <p class="mb-0 fs-22">250.00 ر.س</p>
+                                                    </div>
+                                                </div>
+                                                <!-- end price  -->
+                                                <div class="col-2"></div>
+                                                <!-- start delete button  -->
+                                                <div class="col-2 d-flex align-items-center">
+                                                    <a href="" class="btn" style="background-color: #FFD600;border-radius: 4px; width: 100%;">
+                                                        اضف للسلة
+                                                    </a>
+                                                </div>
+                                                <!-- end delete button  -->
+                                            </div>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </div>
+                        <!-- end last product visit  -->
                     </div>
+                    <!-- start total price  -->
+                    <div class="col-3  mx-auto">
+                        <!-- start prices  -->
+                        <div class="card p-3">
+                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                <p>قيمة الطلب</p>
+                                <p>250.00 ر.س</p>
+                            </div>
+                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                <p>خصم العرض</p>
+                                <p>- 50.00 ر.س</p>
+                            </div>
+                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                <p>إجمالي السلة</p>
+                                <p class="fs-20" style="color: #DE68C9">200.00 ر.س</p>
+                            </div>
+                            <hr style="opacity:.5">
+                            <div class="fs-14 d-flex align-items-center">
+                                <i style="color: #DE68C9; margin-left: 5px;" class="fs-20 las la-shipping-fast"></i>
+                                <span style="color: #DE68C9; margin-left: 2px;">متوقع التسليم خلال</span>
+                                <span> 24 ساعة</span>
+                            </div>
+                        </div>
+                        <!-- end prices  -->
+                        <!-- start coupon  -->
+                        <div class="card p-3">
+                            <p style="color: #222222">كوبون التخفيض</p>
+                            <div class="d-flex justify-content-between">
+                                <input type="text" 
+                                    style="background-color: rgba(217, 217, 217, 0.2);border: 0.7px solid #B0B3B2;width: calc(100% - 90px);height: 38px;">
+                                <input type="button" value="Add" class="bg-white"
+                                    style="border: 0.7px solid #B0B3B2;width: 80px;height: 38px;">
+                            </div>
+                        </div>
+                        <!-- end coupon  -->
+                        <div class="card">
+                            <button class="btn fw-500 fs-20" style="background-color: #DE68C9; color: white" >الانتقال للدفع</button>
+                        </div>
+                    </div>
+                    <!-- end total price  -->
                 </div>
             @else
                 <div class="row">
@@ -183,6 +295,104 @@
                     </div>
                 </div>
             @endif
+        </div>
+    </section>
+
+    <section class="mb-4 product-details-content-sugg">
+        <div class="container">
+            <div class="row gutters-10">
+                <div class="col-xl-12 order-0 order-xl-1">
+                    <div class="rounded">
+                        <div class="p-3">
+                            <h3 class="fs-16 fw-600 mb-0">
+                                <span class="fs-20 fw-400 mr-4">منتجات تكاملية</span>
+                            </h3>
+                        </div>
+                        <div class="p-3">
+                            <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3"
+                                    data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2"
+                                    data-arrows='true' data-infinite='true'>
+                                <div class="carousel-box position-relative">
+                                    <div class="aiz-card-box rounded hov-shadow-md my-2 has-transition">
+                                        <div class="mb-3">
+                                            <a href=""
+                                                class="d-block">
+                                                <img class="img-fit lazyload mx-auto h-327px h-md-327px"
+                                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
+                                                    data-src=""
+                                                    alt=""
+                                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
+                                            </a>
+                                        </div>
+                                        <div class="card text-left p-2 card-detail-product-sugg">
+                                            <h3 class="fs-16 text-truncate-2 lh-1-4 mb-0 h-35px">
+                                                <a href=""
+                                                    class="d-block text-reset">بنطالون جينز مع بلوزة قطن - سوداء</a>
+                                            </h3>
+                                            <div class="fs-15 d-flex justify-content-between align-items-center price">
+                                                <span>عرض خاص</span>
+                                                <span class="fw-700 text-primary">250.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="icon-favorite d-flex justify-content-center align-items-center">
+                                        <i class="fs-20 lar la-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-4 product-details-content-sugg">
+        <div class="container">
+            <div class="row gutters-10">
+                <div class="col-xl-12 order-0 order-xl-1">
+                    <div class="rounded">
+                        <div class="p-3">
+                            <h3 class="fs-16 fw-600 mb-0">
+                                <span class="fs-20 fw-400 mr-4">منتجات الأكثر مبيعا</span>
+                            </h3>
+                        </div>
+                        <div class="p-3">
+                            <div class="aiz-carousel gutters-5 half-outside-arrow" data-items="5" data-xl-items="3"
+                                    data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="2"
+                                    data-arrows='true' data-infinite='true'>
+                                <div class="carousel-box position-relative">
+                                    <div class="aiz-card-box rounded hov-shadow-md my-2 has-transition">
+                                        <div class="mb-3">
+                                            <a href=""
+                                                class="d-block">
+                                                <img class="img-fit lazyload mx-auto h-327px h-md-327px"
+                                                    src="{{ static_asset('assets/img/placeholder.jpg') }}"
+                                                    data-src=""
+                                                    alt=""
+                                                    onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
+                                            </a>
+                                        </div>
+                                        <div class="card text-left p-2 card-detail-product-sugg">
+                                            <h3 class="fs-16 text-truncate-2 lh-1-4 mb-0 h-35px">
+                                                <a href=""
+                                                    class="d-block text-reset">بنطالون جينز مع بلوزة قطن - سوداء</a>
+                                            </h3>
+                                            <div class="fs-15 d-flex justify-content-between align-items-center price">
+                                                <span>عرض خاص</span>
+                                                <span class="fw-700 text-primary">250.00</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="icon-favorite d-flex justify-content-center align-items-center">
+                                        <i class="fs-20 lar la-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 

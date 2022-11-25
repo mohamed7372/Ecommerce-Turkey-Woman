@@ -324,8 +324,7 @@
                                 data-arrows='true' data-infinite='true'>
                                 @foreach (filter_products(\App\Models\Product::where('category_id', $detailedProduct->category_id)->where('id', '!=', $detailedProduct->id))->limit(10)->get() as $key => $related_product)
                                     <div class="carousel-box position-relative">
-                                        <div
-                                            class="aiz-card-box rounded hov-shadow-md my-2 has-transition">
+                                        <div class="aiz-card-box rounded hov-shadow-md my-2 has-transition">
                                             <div class="mb-3">
                                                 <a href="{{ route('product', $related_product->slug) }}"
                                                     class="d-block">
