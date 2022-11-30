@@ -5,10 +5,6 @@
     <div class="home-banner-area mb-4 pt-3">
         <div class="container">
             <div class="row gutters-10 position-relative">
-                <!-- <div class="col-lg-3 position-static d-none d-lg-block">
-                    @include('frontend.partials.category_menu')
-                </div> -->
-
                 @php
                     $num_todays_deal = count($todays_deal_products);
                 @endphp
@@ -38,7 +34,7 @@
                         </div>
                     @endif
                     @if (count($featured_categories) > 0)
-                        <div class="gutters-10 aiz-carousel half-outside-arrow" data-items="9" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='false'>
+                        <div class="gutters-10 aiz-carousel half-outside-arrow" data-items="10" data-xl-items="10" data-lg-items="7"  data-md-items="5" data-sm-items="4" data-xs-items="4" data-arrows='false'>
                             @foreach ($featured_categories as $key => $category)
                             <div class="carousel-box">
                                 <div class="minw-0 home-story">
@@ -178,11 +174,17 @@
         <section class="mb-4">
             <div class="container">
                 <!-- <div class="px-2 px-md-4 bg-white shadow-sm rounded"> -->
-                <div class="rounded">
+                <div class="rounded position-relative">
                     @include('frontend.partials.product_pub_2')
+
+                    <div class="titles-pub1 pub2 d-flex align-items-center flex-column" style="width:200px;position: absolute; bottom:30px;right:50%;transform: translateX(50%);">
+                        <h4 style="font-size: 22px;text-align:center; color: white">خامات جينز</h4>
+                        <h2 class="mb-2" style="font-size: 25px;text-align:center; color: white">جودة عالية عالمية<h2>
+                        <button style="font-size: 16px;font-weight:500;padding:6px 35px">ابدأ الأن</button>
+                    </div>
                 </div>
                 <div class="rounded">
-                    <div class="aiz-carousel" data-items="1" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
+                    <div class="aiz-carousel" data-items="1" data-arrows='true'>
                         @foreach ($newest_products as $key => $new_product)
                         <div class="carousel-box">
                             @include('frontend.partials.product_pub_1',['product' => $new_product])
@@ -203,7 +205,7 @@
                             <h2>وصل حديثاً</h2>
                             <h4>انتقل لعرض جميع المنتجات</h4>
                         </div>
-                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                             @foreach ($newest_products as $key => $new_product)
                             <div class="carousel-box">
                                 @include('frontend.partials.product_box_1',['product' => $new_product])
@@ -223,21 +225,21 @@
                     @include('frontend.partials.product_pub_2')
                     <div class="details">
                         <button>تصفيات الموسم</button>
-                        <button>
+                        <button class="d-flex align-items-center">
                             <span>منتجات 1</span>
-                            <i class="la la-heart-o opacity-80"></i>
+                            <i style="margin-right: 5px" class="fs-24 las la-arrow-left"></i>
                         </button>
-                        <button>
+                        <button class="d-flex align-items-center">
                             <span>منتجات 2</span>
-                            <i class="la la-heart-o opacity-80"></i>
+                            <i style="margin-right: 5px" class="fs-24 las la-arrow-left"></i>
                         </button>
-                        <button>
+                        <button class="d-flex align-items-center">
                             <span>منتجات 3</span>
-                            <i class="la la-heart-o opacity-80"></i>
+                            <i style="margin-right: 5px" class="fs-24 las la-arrow-left"></i>
                         </button>
-                        <button>
+                        <button class="d-flex align-items-center">
                             <span>منتجات 4</span>
-                            <i class="la la-heart-o opacity-80"></i>
+                            <i style="margin-right: 5px" class="fs-24 las la-arrow-left"></i>
                         </button>
                     </div>
                 </div>
@@ -254,7 +256,7 @@
                             <h2>براندا وينس</h2>
                             <h4>احصل على الهام مميز لأحدث الموضات من خلال هذا التجميعات</h4>
                         </div>
-                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="4" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="3" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
                             @foreach ($newest_products as $key => $new_product)
                             <div class="carousel-box">
                                 @include('frontend.partials.product_box_2',['product' => $new_product])
@@ -276,7 +278,7 @@
                             <h2>الأكثر مبيعا هذا الإسبوع</h2>
                             <h4>اضمن أناقتك مع القطع الرائعة لهذا الموسم!</h4>
                         </div>
-                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="6" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="5" data-xl-items="5" data-lg-items="4"  data-md-items="3" data-sm-items="2" data-xs-items="2" data-arrows='true'>
                             @foreach ($newest_products as $key => $new_product)
                             <div class="carousel-box">
                                 @include('frontend.partials.product_box_3',['product' => $new_product])
@@ -309,7 +311,7 @@
                                 <h2>ام سي ستوري</h2>
                                 <h4>لا تنس أن تكمل تركيباتك الجميلة بابتسامة &#10084;</h4>
                             </div>
-                            <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="4" data-xl-items="5" data-lg-items="3"  data-md-items="2" data-sm-items="1" data-xs-items="2" data-arrows='true'>
+                            <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="4" data-xl-items="4" data-lg-items="3"  data-md-items="2" data-sm-items="1" data-xs-items="2" data-arrows='true'>
                                 @foreach ($newest_products as $key => $new_product)
                                 <div class="carousel-box">
                                     @include('frontend.partials.product_box_1',['product' => $new_product])
@@ -345,7 +347,7 @@
                             <h2>مقالات ام سي</h2>
                             <h4>اتجاهات الموسم الجديد ، أنماط المشاهير ، افعل ذلك بنفسك ، مجموعات خاصة وأكثر من ذلك بكثير في المحتوى التحريري الخاص بنا. تحقق من منشورات مدونتنا ولقطاتنا الخاصة وأحدث محتوى فيديو أعددناه لك.</h4>
                         </div>
-                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="4" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-items="3" data-xl-items="3" data-lg-items="3"  data-md-items="2" data-sm-items="2" data-xs-items="1" data-arrows='true'>
                             @foreach ($newest_products as $key => $new_product)
                             <div class="carousel-box">
                                 @include('frontend.partials.product_box_4',['product' => $new_product])
@@ -558,7 +560,6 @@
         </div>
     </section>
     @endif -->
-
 @endsection
 
 @section('script')

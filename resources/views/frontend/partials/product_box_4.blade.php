@@ -23,7 +23,7 @@
             <p>احفظ ملابسك فترة أطول</p>
             <div class="icon">
                 <p>اقراء الأن</p>
-                <i class="la la-heart-o la-2x opacity-80"></i>
+                <i class="fs-22 las la-arrow-left"></i>
             </div>
         </div>
     </a>

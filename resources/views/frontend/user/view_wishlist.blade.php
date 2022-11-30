@@ -1,44 +1,63 @@
 @extends('frontend.layouts.user_panel')
 
 @section('panel_content')
-    <div class="aiz-titlebar mt-2 mb-4">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <b class="h4">{{ translate('Wishlist')}}</b>
+    <div class="row mb-3 title-header">
+        <div class="col-12">
+            <p class="p-3 mb-0 favorite-wishlist-resp" style="background-color: #DE68C9; color:white">المفضلة</p>
+            <div class="groupe p-3 d-flex justify-content-between bg-white">
+                <p class="mb-0">اسم المجموعة</p>
+                <div class="d-flex align-items-center">
+                    <div class="d-flex align-items-center pl-4" style="color: #DE68C9;">
+                        <i class="fs-22 las la-pen pr-2"></i>
+                        <p class="mb-0">تعديل</p>
+                    </div>
+                    <i class="fs-20 las la-times"></i>
+                </div>
             </div>
         </div>
     </div>
-
     <div class="row gutters-5">
         @forelse ($wishlists as $key => $wishlist)
             @if ($wishlist->product != null)
-                <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-4 col-sm-6" id="wishlist_{{ $wishlist->id }}">
+                <!-- <div class="col-xxl-3 col-xl-4 col-lg-3 col-md-4 col-sm-6" id="wishlist_{{ $wishlist->id }}"> -->
+                <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-12 col-sm-12" id="wishlist_{{ $wishlist->id }}">
                     <div class="card mb-2 shadow-sm">
-                        <div class="card-body">
-                            <a href="{{ route('product', $wishlist->product->slug) }}" class="d-block mb-3">
-                                <img src="{{ uploaded_asset($wishlist->product->thumbnail_img) }}" class="img-fit h-140px h-md-200px">
+                        <div class="card-body d-flex">
+                            <a href="{{ route('product', $wishlist->product->slug) }}" class="d-block col-3 p-0">
+                                <img src="{{ uploaded_asset($wishlist->product->thumbnail_img) }}" class="img-fit" style="width: 100%; height: 100%">
                             </a>
 
-                            <h5 class="fs-14 mb-0 lh-1-5 fw-600 text-truncate-2">
-                                <a href="{{ route('product', $wishlist->product->slug) }}" class="text-reset">{{ $wishlist->product->getTranslation('name') }}</a>
-                            </h5>
-                            <div class="rating rating-sm mb-1">
-                                {{ renderStarRating($wishlist->product->rating) }}
+                            <div class="details pr-3 col-9">
+                                <h5 class="fs-16 mb-0 lh-1-5 fw-600 text-truncate-2">
+                                    <a href="{{ route('product', $wishlist->product->slug) }}" class="text-reset">{{ $wishlist->product->getTranslation('name') }}</a>
+                                </h5>
+                                <p class="fs-16"><span>رقم الستوك:</span> <span>BCW450TRK0002100</span></p>
+                                <div class="d-flex">
+                                    <p class="fs-18"><span>اللون:</span> <span>أزرق</span></p>
+                                    <p class="fs-18">|</p>
+                                    <p class="fs-18"><span>المقاس:</span> <span>S</span></p>
+                                </div>
+                                <p><del>300.00 ر.س</del></p>
+                                <p class="fs-20" style="color:#DE68C9">250.00 ر.س</p>
+
+                                <div class="btns d-flex justify-content-between">
+                                    <button type="button" class="btn" style="width: 130px !important; background-color: #DE68C9 !important;color: white;" onclick="showAddToCartModal({{ $wishlist->product->id }})">
+                                        {{ translate('Add to cart')}}
+                                    </button>
+                                    <button href="#" class="d-flex align-items-center" data-toggle="tooltip" 
+                                        data-placement="top" title="Remove from wishlist" 
+                                        onclick="removeFromWishlist({{ $wishlist->id }})"
+                                        style="width:calc(100% - 138px) !important;font-size:16px;background-color: #F9F9F9;border: 0.7px solid #B0B3B2;border-radius: 2px;color: #222222;">
+                                        <div class="icon d-flex align-items-center justify-content-center pl-2"  style="border-left: 0.7px solid #B0B3B2;height: 100%;">
+                                            <i class="fs-20 las la-times"></i>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-center" style="width: 100%;">
+                                            <p class="mb-0 ">حذف من المفضلة</p>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
-                            <div class=" fs-14">
-                                  @if(home_base_price($wishlist->product) != home_discounted_base_price($wishlist->product))
-                                      <del class="opacity-60 mr-1">{{ home_base_price($wishlist->product) }}</del>
-                                  @endif
-                                      <span class="fw-600 text-primary">{{ home_discounted_base_price($wishlist->product) }}</span>
-                            </div>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="link link--style-3" data-toggle="tooltip" data-placement="top" title="Remove from wishlist" onclick="removeFromWishlist({{ $wishlist->id }})">
-                                <i class="la la-trash la-2x"></i>
-                            </a>
-                            <button type="button" class="btn btn-sm btn-block btn-primary ml-3" onclick="showAddToCartModal({{ $wishlist->product->id }})">
-                                <i class="la la-shopping-cart mr-2"></i>{{ translate('Add to cart')}}
-                            </button>
+
                         </div>
                     </div>
                 </div>

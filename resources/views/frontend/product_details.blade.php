@@ -48,12 +48,12 @@
         </div>
     </section>
     <!-- start detail product  -->
-    <section class="mb-4 pt-3 product-details-content">
+    <section class="mb-4 product-details-content">
         <div class="container">
             <div class="rounded p-3">
                 <div class="row">
                     <!-- start right side  -->
-                    <div class="col-xl-5 col-lg-6 mb-4">
+                    <div class="col-xl-5 col-lg-6">
                         <div>
                             <!-- start images  -->
                             <div class="z-3 row gutters-10">
@@ -66,7 +66,9 @@
                                         data-fade='true' data-auto-height='true'>
                                         @foreach ($photos as $key => $photo)
                                             <div class="carousel-box img-zoom rounded">
-                                                <img class="main-img img-fluid lazyload h-127px h-md-327px"
+                                                <!-- <img class="main-img img-fluid lazyload h-127px h-md-327px" -->
+                                                <img class="main-img img-fluid lazyload"
+                                                    style="width: 100%;"
                                                     src="{{ static_asset('assets/img/placeholder.jpg') }}"
                                                     data-src="{{ uploaded_asset($photo) }}"
                                                     onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
@@ -86,13 +88,13 @@
                                 </div>
                                 <!-- end big image  -->
                                 <!-- start small images prod  -->
-                                <div class="col-12 col-md-auto w-md-150px order-2 order-md-1 mt-3 mt-md-0">
+                                <div class="small-img-product-detail col-12 col-md-auto w-md-150px order-2 order-md-1 mt-3 mt-md-0">
                                     <div class="p-1 aiz-carousel product-gallery-thumb" data-items='5'
                                         data-nav-for='.product-gallery' data-vertical='true' data-vertical-sm='false'
                                         data-focus-select='true' data-arrows='false'  style="height: 635px; overflow-y: scroll;direction: ltr;">
                                         @foreach ($photos as $key => $photo)
                                             <div class="carousel-box c-pointer border rounded">
-                                                <img class="lazyload mw-100 size-200px mx-auto"
+                                                <img class="lazyload mw-100 size-180px mx-auto"
                                                     src="{{ static_asset('assets/img/placeholder.jpg') }}"
                                                     data-src="{{ uploaded_asset($photo) }}"
                                                     onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';">
@@ -115,27 +117,27 @@
                             </div>
                             <!-- end images  -->
                             <!-- start product contact  -->
-                            <div class="card">
+                            <div class="card contact-product-detail">
                                 <div class="card-contact p-3">
                                     <div class="code-product">
-                                        <p class="mb-0 fs-14">كود المنتج</p>
+                                        <p class="mb-0 fs-14" style="margin: 0;">كود المنتج</p>
                                         <p class="mb-0 fw-500 fs-18">151254</p>
                                     </div>
                                     <div class="contact d-flex justify-content-between align-items-center">
-                                        <div class="contact1">
-                                            <i></i>
+                                        <button class="contact1 bg-white">
+                                            <i style="margin-left: 5px" class="fs-24 lab la-whatsapp"></i>
                                             <p class="mb-0 fw-500 fs-16">اطلب عبر الوتس أب</p>
-                                        </div>
-                                        <div class="contact2">
-                                            <i></i>
+                                        </>
+                                        <button class="contact2 bg-white">
+                                            <i style="margin-left: 5px" class="fs-24 las la-phone"></i>
                                             <p class="mb-0 fw-500 fs-16">اطلب عبر الوتس أب</p>
-                                        </div>
+                                        </>
                                     </div>
                                 </div>
                             </div>
                             <!-- end prodcut contact  -->
                             <!-- start other info  -->
-                            <div class="card mb-0">
+                            <div class="card mb-0 other-info-product-detail">
                                 <ul class="more-detail p-4 d-flex justify-content-around align-items-center">
                                     <li>
                                         <img src="" alt="s">
@@ -187,7 +189,7 @@
                                 <div class="scale d-flex align-items-center justify-content-between">
                                     <h1 class="mb-2 fs-20 fw-400">المقاس</h1>
                                     <div class="panel-scale d-flex">
-                                        <i></i>
+                                        <i class="fs-24 las la-ruler" style="margin-left: 5px"></i>
                                         <span class="fs-16">لوحة القياسات</span>
                                     </div>
                                 </div>
@@ -198,7 +200,9 @@
                                 </div>
                                 <div class="buttons d-flex">
                                     <button class="d-flex justify-content-center align-items-center fs-20px">أضف إلى السلة</button>
-                                    <button class="d-flex justify-content-center align-items-center"><i></i></button>
+                                    <button class="d-flex justify-content-center align-items-center bg-white">
+                                        <i style="font-size: 34px;" class="lar la-heart"></i>
+                                    </button>
                                 </div>
                             </div>
 
@@ -308,7 +312,7 @@
     <!-- end detail product  -->
 
     <!-- start prodcut suggestion -->
-    <section class="mb-4 product-details-content-sugg">
+    <section class="product-details-content-sugg">
         <div class="container">
             <div class="row gutters-10">
                 <div class="col-xl-12 order-0 order-xl-1">
@@ -357,9 +361,11 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="icon-favorite">
-                                            <i></i>
-                                        </div>
+                                        <a href="">
+                                            <div class="icon-favorite d-flex justify-content-center align-items-center">
+                                                <i class="fs-20 lar la-heart" style="color: #222222"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>
@@ -475,7 +481,7 @@
 
     
     <!-- start prodcut suggestion second-->
-    <section class="mb-4 product-details-content-sugg">
+    <section class="product-details-content-sugg">
         <div class="container">
             <div class="row gutters-10">
                 <div class="col-xl-12 order-0 order-xl-1">
@@ -525,9 +531,11 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="icon-favorite">
-                                            <i></i>
-                                        </div>
+                                        <a href="">
+                                            <div class="icon-favorite d-flex justify-content-center align-items-center">
+                                                <i class="fs-20 lar la-heart" style="color: #222222"></i>
+                                            </div>
+                                        </a>
                                     </div>
                                 @endforeach
                             </div>
@@ -639,7 +647,9 @@
             </div>
         </div>
     </section>
+
     <!-- end prodcut suggestion second-->
+    <section style="margin-bottom: 60px"></section>
 @endsection
 
 @section('modal')

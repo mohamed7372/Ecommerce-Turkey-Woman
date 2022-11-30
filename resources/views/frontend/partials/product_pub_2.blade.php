@@ -17,11 +17,7 @@
                 alt="{{  $product->getTranslation('name')  }}"
                 onerror="this.onerror=null;this.src='{{ static_asset('assets/img/placeholder.jpg') }}';"
             >
-            <div class="titles-pub1 pub2">
-                <h3>خامات جينز</h3>
-                <h2>جودة عالية عالمية<h2>
-                <button>ابدأ الأن</button>
-            </div>
+            
         </a>
         @if ($product->wholesale_product)
             <span class="absolute-bottom-left fs-11 text-white fw-600 px-2 lh-1-8" style="background-color: #455a64">

@@ -29,30 +29,67 @@
     </div>
 </section> -->
 
-<section class="bg-dark py-5 text-light footer-widget" style="background-color: white !important">
+
+<div id="sponsor">
+    <section class="mb-4">
+        <div class="container">
+            <ul>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+                <li>
+                    <img src="{{ static_asset('assets/img/sponsor.svg') }}" alt="">
+                </li>
+            </ul>
+        </div>
+    </section>   
+</div>
+
+<div class="footer-responsive">
+<div style="height:1px; background-color: rgba(204, 204, 204, 0.411); width:100%"></div>
+
+<section class="py-5 text-light footer-widget" style="background-color: white !important">
     <div class="container">
         <div class="row">
-            <div class="col-lg-5 col-xl-4 text-center text-md-left">
+            <div class="col-lg-3 col-md-3 text-center text-md-left">
                 <div class="mt-4">
                     <a href="{{ route('home') }}" class="d-block">
                         @if(get_setting('footer_logo') != null)
                             <img class="lazyload" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ uploaded_asset(get_setting('footer_logo')) }}" alt="{{ env('APP_NAME') }}" height="44">
                         @else
-                            <img class="lazyload" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ static_asset('assets/img/logo.png') }}" alt="{{ env('APP_NAME') }}" height="44">
+                            <img class="lazyload" src="{{ static_asset('assets/img/placeholder-rect.jpg') }}" data-src="{{ static_asset('assets/img/logo.svg') }}" alt="{{ env('APP_NAME') }}" height="44">
                         @endif
                     </a>
                     <div class="my-3">
                         {!! get_setting('about_us_description',null,App::getLocale()) !!}
                     </div>
                     <div class="d-inline-block d-md-block mb-4">
-                        <form class="form-inline" method="POST" action="{{ route('subscribers.store') }}">
+                        <form class="form-inline" method="POST" action="{{ route('subscribers.store') }}" style="width: 100% !important">
                             @csrf
-                            <div class="form-group mb-0">
-                                <input type="email" class="form-control" placeholder="{{ translate('Your Email Address') }}" name="email" required>
+                            <div class="form-group mb-0 position-relative" style="width: 100%">
+                                <input type="email" class="form-control fs-12" placeholder="اكتب ايميلك هنا.." name="email" required
+                                        style="border-color: rgba(176, 179, 178, 0.5);color: rgba(176, 179, 178, 1);width:100% !important; padding-left: 80px !important;">
+                                <button type="submit" class="btn d-felx align-items-center" style="position: absolute; left:5px; top:5px;background-color: #DE68C9;color: white;height: calc(100% - 10px);">
+                                    <p style="margin-top: -5px">
+                                    ارسل
+                                    </p>
+                                </button>
                             </div>
-                            <button type="submit" class="btn btn-primary">
-                                {{ translate('Subscribe') }}
-                            </button>
                         </form>
                     </div>
                     <div class="w-300px mw-100 mx-auto mx-md-0">
@@ -69,7 +106,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 ml-xl-auto col-md-4 mr-0">
+            <div class="col-md-1"></div>
+            <div class="col-lg-2 col-md-2 mr-0">
                 <div class="text-center text-md-left mt-4">
                     <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
                         كيف يمكننا مساعدتك؟
@@ -99,7 +137,8 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-4">
+            <div class="col-md-1"></div>
+            <div class="col-lg-2 col-md-2">
                 <div class="text-center text-md-left mt-4">
                     <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
                         شركتنا
@@ -132,7 +171,45 @@
                     </ul>
                 </div>
             </div>
-
+            <div class="col-md-1"></div>
+            <div class="col-lg-2 col-md-2">
+                <div class="text-center text-md-left mt-4">
+                    <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
+                        تابعنا
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-facebook-f" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">فيسبوك</p>
+                        </li>
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-instagram" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">انستجرام</p>
+                        </li>
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-youtube" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">يوتيوب</p> 
+                        </li>
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-pinterest-p" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">بنترست</p>
+                        </li>
+                    </ul>
+                    <h4 class="fs-20 text-uppercase fw-600 pb-2 mb-4" style="color: rgba(34, 34, 34, 1) !important">
+                        تطبيقاتنا
+                    </h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-apple" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">أبل بلاي</p>
+                        </li>
+                        <li class="mb-2 fs-15 d-flex align-items-center" style="color: rgba(34, 34, 34, 1)">
+                            <i class="lab la-android" style="color: rgba(34, 34, 34, 1); margin-left:5px;"></i>
+                            <p class="mb-0">جوجل بلاي</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <!-- <div class="col-md-4 col-lg-2">
                 <div class="text-center text-md-left mt-4">
                     <h4 class="fs-13 text-uppercase fw-600 border-bottom border-gray-900 pb-2 mb-4">
@@ -189,8 +266,16 @@
     </div>
 </section>
 
+<!-- <hr> -->
+
+<div style="width: 100%; opacity: .1; height: 1px; background-color: #ccc"></div>
+
+<section class="d-flex justify-content-center align-items-center bg-white p-3">
+    <p class="mb-0 fs-20 fw-500">جميع الحقوق محفوظة لصالح أم سي لانو @2022</p>
+</section>
+
 <!-- FOOTER -->
-<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light">
+<footer class="pt-3 pb-7 pb-xl-3 bg-black text-light d-none">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-4">
@@ -245,7 +330,7 @@
         </div>
     </div>
 </footer>
-
+</div>
 
 <div class="aiz-mobile-bottom-nav d-xl-none fixed-bottom bg-white shadow-lg border-top rounded-top" style="box-shadow: 0px -1px 10px rgb(0 0 0 / 15%)!important; ">
     <div class="row align-items-center gutters-5">
