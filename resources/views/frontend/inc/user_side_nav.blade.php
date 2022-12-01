@@ -4,81 +4,103 @@
         <div class="sidemnenu mb-3">
             <ul class="aiz-side-nav-list px-2" data-toggle="aiz-side-menu">
 
-                <li class="aiz-side-nav-item">
-                    <a href="{{ route('dashboard') }}" class="aiz-side-nav-link {{ areActiveRoutes(['dashboard'])}}">
-                        <i class="las la-home aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{ translate('Dashboard') }}</span>
-                    </a>
-                </li>
+
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                        <h4 class="panel-title mb-0">
+                            <a data-toggle="collapse" href="#collapse1" class="d-flex"  style="padding: 10px 20px 10px 15px !important">
+                                <i class="fs-24 las la-home aiz-side-nav-icon"></i>
+                                <span style="color:#222222" class="fs-14 fw-600 aiz-side-nav-text">{{ translate('Dashboard') }}</span>
+                            </a>
+                        </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse">
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex align-items-center" style="margin-right: 30px">
+                                <i class="fs-24 las la-chevron-left pe-2"></i>
+                                <p class="mb-0" style="color:#22222270">معلومات عضويتي</p>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center" style="margin-right: 30px">
+                                <i class="fs-24 las la-chevron-left pe-2"></i>
+                                <p class="mb-0" style="color:#22222270">تغيير كلمة المرور</p>
+                            </li>
+                            <li class="list-group-item d-flex align-items-center" style="margin-right: 30px">
+                                <i class="fs-24 las la-chevron-left pe-2"></i>
+                                <p class="mb-0" style="color:#22222270">عنوان التسليم</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <!-- start icons side user bar  -->
 
                 <!-- profile settings  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('profile') }}" class="aiz-side-nav-link {{ areActiveRoutes(['profile'])}}">
-                        <i class="las la-user aiz-side-nav-icon"></i>
-                        <span class="aiz-side-nav-text">{{translate('Manage Profile')}}</span>
+                        <i class="fs-24 las la-user aiz-side-nav-icon"></i>
+                        <span class="fw-600 aiz-side-nav-text">{{translate('Manage Profile')}}</span>
                     </a>
                 </li>
                 <!-- orders  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-bags-shopping aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-box aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">طلباتي</span>
                     </a>
                 </li>
                 <!-- return order -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-box-full aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-undo-alt aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">طلبات الإرجاع</span>
                     </a>
                 </li>
                 <!-- sell  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-home aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-shopping-basket aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">سلة المشتريات</span>
                     </a>
                 </li>
                 <!-- favorite  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="la la-heart-o aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 la la-heart-o aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">{{ translate('Wishlist') }}</span>
                     </a>
                 </li>
                 <!-- notification price  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-siren-on aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-tag aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">قائمة تنبيهات الأسعار</span>
                     </a>
                 </li>
                 <!-- notification stock  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-bell aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-bell aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">قائمة تنبيهات المخازن</span>
                     </a>
                 </li>
                 <!-- code promo  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-wallet aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-gift aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">كود الخصم / نقاطي</span>
                     </a>
                 </li>
                 <!-- credit info  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-wallet aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-wallet aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">معلومات الرصيد</span>
                     </a>
                 </li>
                 <!-- log out  -->
                 <li class="aiz-side-nav-item">
                     <a href="{{ route('wishlists.index') }}" class="aiz-side-nav-link {{ areActiveRoutes(['wishlists.index'])}}">
-                        <i class="las la-sign-out aiz-side-nav-icon fw-600"></i>
+                        <i class="fs-24 las la-sign-out-alt aiz-side-nav-icon fw-600"></i>
                         <span class="aiz-side-nav-text fw-600">تسجيل الخروج</span>
                     </a>
                 </li>

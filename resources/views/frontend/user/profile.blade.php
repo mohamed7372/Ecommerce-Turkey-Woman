@@ -7,7 +7,7 @@
         <div>
             <div class="card-body">
                 <div class="form row form-profil-user-custom">
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <div class="form-group row d-flex align-items-center">
                             <label class="col-md-3 col-form-label">الأسم الأول *</label>
                             <div class="col-md-9">
@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-lg-6 col-sm-12">
                         <div class="form-group row d-flex align-items-center">
                             <label class="col-md-3 col-form-label">الدولة</label>
                             <div class="col-md-9">
@@ -142,7 +142,7 @@
                             <div class="col-8"></div>
                             <div class="col-3">
                                 <button type="submit" class="btn fs-24"
-                                    style="background-color: #DE68C9; border-radius: 4px; color: white;padding:10px 38px">
+                                    style="background-color: #DE68C9; border-radius: 4px; color: white;padding:10px 38px;margin-top: 10px;">
                                         حفظ
                                 </button>
                             </div>

@@ -63,11 +63,11 @@
                                 <!-- start big image  -->
                                 <div class="col order-1 order-md-2">
                                     <div class="card card-main-img aiz-carousel product-gallery" data-nav-for='.product-gallery-thumb'
-                                        data-fade='true' data-auto-height='true'>
+                                        data-fade='true' data-auto-height='true' data-dots='true'>
                                         @foreach ($photos as $key => $photo)
                                             <div class="carousel-box img-zoom rounded">
                                                 <!-- <img class="main-img img-fluid lazyload h-127px h-md-327px" -->
-                                                <img class="main-img img-fluid lazyload"
+                                                <img class="main-img img-fit img-fluid lazyload"
                                                     style="width: 100%;"
                                                     src="{{ static_asset('assets/img/placeholder.jpg') }}"
                                                     data-src="{{ uploaded_asset($photo) }}"
@@ -304,6 +304,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- end details info  -->
                 </div>
             </div>

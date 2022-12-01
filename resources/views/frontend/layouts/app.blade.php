@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="{{ static_asset('assets/css/aiz-core.css') }}">
     <link rel="stylesheet" href="{{ static_asset('assets/css/custom-style.css') }}">
 
-    <link rel="stylesheet" href="{{ static_asset('assets/css/new-styles-o.css') }}">
+    <link rel="stylesheet" href="{{ static_asset('assets/css/new-styles-b.css') }}">
     
 
     <script>

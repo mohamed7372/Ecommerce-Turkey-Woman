@@ -226,12 +226,15 @@
     </div>
 </div>
 <!-- END Top Bar -->
-<header class="@if(get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white border-bottom shadow-sm nav-bar-search">
+<header class="header-website-resp @if(get_setting('header_stikcy') == 'on') sticky-top @endif z-1020 bg-white border-bottom shadow-sm nav-bar-search">
     <div class="position-relative logo-bar-area z-1">
         <div class="container">
             <div class="d-flex align-items-center">
 
                 <div class="col-3 pl-0 pr-3 d-flex align-items-center">
+                    <a href="" style="margin-left: 20px; margin-right:5px" class="icon-navbar-menu-resp">
+                        <img src="{{ static_asset('assets/icons/navbar-menu.svg') }}">
+                    </a>
                     <a class="d-block py-20px mr-3 ml-0" href="{{ route('home') }}">
                         @php
                             $header_logo = get_setting('header_logo');
@@ -253,9 +256,15 @@
                         </div>
                     @endif
                 </div>
-                <div class="d-lg-none ml-auto mr-0">
+                <div class="d-lg-none ml-auto mr-0 d-flex">
                     <a class="p-2 d-block text-reset" href="javascript:void(0);" data-toggle="class-toggle" data-target=".front-header-search">
                         <i class="las la-search la-flip-horizontal la-2x"></i>
+                    </a>
+                    <a class="p-2 cart-nav-bar-resp position-relative d-flex align-items-center justify-content-center">
+                        <i class="las la-shopping-basket la-flip-horizontal la-2x"></i>
+                        <div class="circle" style="background-color: rgba(246, 218, 223, 1);border-radius:50px;width: 21px;height: 21px;color:white;position:absolute;left:-3px;top:-3px;">
+                            <p class="mb-0" style="text-align: center;margin-top: 2px">0</p>
+                        </div>
                     </a>
                 </div>
 

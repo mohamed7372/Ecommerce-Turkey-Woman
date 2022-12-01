@@ -50,18 +50,19 @@
         <div class="container">
             @if ($carts && count($carts) > 0)
                 <div class="row">
-                    <div class="col-9 mx-auto">
+                    <div class="col-lg-12 col-xl-9 mx-auto">
                         <!-- start product cart  -->
                         <div class="shadow-sm bg-white rounded text-left" style="padding: 16px 16px 0">
                             <div class="mb-4">
                                 <div class="row d-flex justify-content-between mb-3 px-3">
-                                    <button type='button' class="fs-18 btn btn-secondary">حذف المحدد</button>
+                                    <button type='button' class="fs-18 btn btn-secondary btn-delete-shop-resp">حذف المحدد</button>
+                                    <button type='button' class="fs-18 btn btn-secondary btn-continue-shop-resp">استكمال التسوق</button>
                                     <button type='button' class="fs-18 d-flex align-items-center btn btn-outline-secondary">
                                         <i class="las la-arrow-right"></i>
                                         <p style="margin-right: 10px" class="mb-0">استكمال التسوق</p>
                                     </button>
                                 </div>
-                                <ul class="list-group list-group-flush" style="list-style: none;">
+                                <ul class="list-group list-group-flush list-group-cart-resp" style="list-style: none;">
                                     @php
                                         $total = 0;
                                     @endphp
@@ -76,11 +77,11 @@
                                                 $product_name_with_choice = $product->getTranslation('name') . ' - ' . $cartItem['variation'];
                                             }
                                         @endphp
-                                        <li class="px-0">
+                                        <li class="px-0 item-cart-resp">
                                             <div class="card p-3">
                                             <div class="row gutters-5">
                                                 <!-- start image and her details  -->
-                                                <div class="col-lg-5 d-flex align-items-center">
+                                                <div class="col-sm-12 col-lg-5 d-flex align-items-center">
                                                     <input type="checkbox" name="" id=""
                                                             style="width: 17px; height: 17px;cursor: pointer; border-radius: 0;">
                                                     <!-- start image product  -->
@@ -114,7 +115,7 @@
                                                 </div>
                                                 <!-- end image and her details  -->
                                                 <!-- start select amount  -->
-                                                <div class="col-lg col-6 order-4 order-lg-0 d-flex align-items-center">
+                                                <div class="col-sm-8 col-lg-3 order-sm-3 order-4 order-lg-0 d-flex align-items-center">
                                                     @if ($cartItem['digital'] != 1 && $product->auction_product == 0)
                                                         <div class="row no-gutters align-items-center aiz-plus-minus mr-2 ml-0">
                                                             <p class="mb-0 fs-18 fw-500" style="margin-left: 16px">العدد</p>
@@ -135,7 +136,7 @@
                                                 </div>
                                                 <!-- end select amount  -->
                                                 <!-- start price  -->
-                                                <div class="col-lg col-4 order-3 order-lg-0 my-3 my-lg-0 d-flex align-items-center">
+                                                <div class="col-sm-4 col-lg-3 order-sm-4 order-3 order-lg-0 my-lg-0 d-flex align-items-center" style="margin-top: 16px">
                                                     <div>
                                                         <p class="mb-0" style="opacity: .5; color:#222222"><del>300.00 ر.س</del></p>
                                                         <p class="mb-0 fs-22" style='color: #DE68C9;'>250.00 ر.س</p>
@@ -143,7 +144,7 @@
                                                 </div>
                                                 <!-- end price  -->
                                                 <!-- start delete button  -->
-                                                <div class="col-lg-auto col-6 order-5 order-lg-0 text-right d-flex align-items-center">
+                                                <div class="close-item-cart-resp col-sm-0 col-lg-1 order-5 order-lg-0 text-right align-items-center">
                                                     <a href="javascript:void(0)"
                                                         onclick="removeFromCartView(event, {{ $cartItem['id'] }})"
                                                         class="btn btn-icon">
@@ -160,8 +161,8 @@
                         </div>
                         <!-- end product cart  -->
                         <!-- start last product visit  -->
-                        <div class="shadow-sm bg-white rounded text-left" style="padding: 16px 16px 0">
-                            <div class="mb-4">
+                        <div class="last-product-visit-resp shadow-sm bg-white rounded text-left" style="padding: 16px 16px 0">
+                            <div class="mb-0">
                                 <div class="row mb-3 px-3 d-flex align-items-center">
                                     <i style="margin-left: 5px" class="fs-18 lar la-star"></i>
                                     <span class="fs-18">منتجات تصفحتها مؤخرا</span>
@@ -243,42 +244,44 @@
                         <!-- end last product visit  -->
                     </div>
                     <!-- start total price  -->
-                    <div class="col-3  mx-auto">
-                        <!-- start prices  -->
-                        <div class="card p-3">
-                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
-                                <p>قيمة الطلب</p>
-                                <p>250.00 ر.س</p>
+                    <div class="col-lg-12 col-xl-3 mx-auto">
+                        <div class="row gutters-5 flex-column">
+                            <!-- start prices  -->
+                            <div class="order-2 card p-3">
+                                <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                    <p>قيمة الطلب</p>
+                                    <p>250.00 ر.س</p>
+                                </div>
+                                <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                    <p>خصم العرض</p>
+                                    <p>- 50.00 ر.س</p>
+                                </div>
+                                <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
+                                    <p>إجمالي السلة</p>
+                                    <p class="fs-20" style="color: #DE68C9">200.00 ر.س</p>
+                                </div>
+                                <hr style="opacity:.5">
+                                <div class="fs-14 d-flex align-items-center">
+                                    <i style="color: #DE68C9; margin-left: 5px;" class="fs-20 las la-shipping-fast"></i>
+                                    <span style="color: #DE68C9; margin-left: 2px;">متوقع التسليم خلال</span>
+                                    <span> 24 ساعة</span>
+                                </div>
                             </div>
-                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
-                                <p>خصم العرض</p>
-                                <p>- 50.00 ر.س</p>
+                            <!-- end prices  -->
+                            <!-- start coupon  -->
+                            <div class="order-1 card p-3" style="padding-bottom: 35px !important;">
+                                <p style="color: #222222">كوبون التخفيض</p>
+                                <div class="d-flex justify-content-between">
+                                    <input type="text" 
+                                        style="background-color: rgba(217, 217, 217, 0.2);border: 0.7px solid #B0B3B2;width: calc(100% - 90px);height: 38px;">
+                                    <input type="button" value="Add" class="bg-white"
+                                        style="border: 0.7px solid #B0B3B2;width: 80px;height: 38px;">
+                                </div>
                             </div>
-                            <div class="fs-18 d-flex justify-content-between" style="color: #222222 !important">
-                                <p>إجمالي السلة</p>
-                                <p class="fs-20" style="color: #DE68C9">200.00 ر.س</p>
+                            <!-- end coupon  -->
+                            <div class="order-3 card">
+                                <button class="btn fw-500 fs-20" style="background-color: #DE68C9; color: white" >الانتقال للدفع</button>
                             </div>
-                            <hr style="opacity:.5">
-                            <div class="fs-14 d-flex align-items-center">
-                                <i style="color: #DE68C9; margin-left: 5px;" class="fs-20 las la-shipping-fast"></i>
-                                <span style="color: #DE68C9; margin-left: 2px;">متوقع التسليم خلال</span>
-                                <span> 24 ساعة</span>
-                            </div>
-                        </div>
-                        <!-- end prices  -->
-                        <!-- start coupon  -->
-                        <div class="card p-3">
-                            <p style="color: #222222">كوبون التخفيض</p>
-                            <div class="d-flex justify-content-between">
-                                <input type="text" 
-                                    style="background-color: rgba(217, 217, 217, 0.2);border: 0.7px solid #B0B3B2;width: calc(100% - 90px);height: 38px;">
-                                <input type="button" value="Add" class="bg-white"
-                                    style="border: 0.7px solid #B0B3B2;width: 80px;height: 38px;">
-                            </div>
-                        </div>
-                        <!-- end coupon  -->
-                        <div class="card">
-                            <button class="btn fw-500 fs-20" style="background-color: #DE68C9; color: white" >الانتقال للدفع</button>
                         </div>
                     </div>
                     <!-- end total price  -->

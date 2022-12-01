@@ -37,52 +37,52 @@
 @section('content')
 
     <section>
-        <div class="home-banner-area mb-3 pt-3">
+        <div class="home-banner-area mb-3">
             <div class="content-title-listing-product mb-3">
-                <h5 class="mb-2">وصل حديثا</h5>
+                <h5 class="mb-2 pt-2">وصل حديثا</h5>
                 <h1 class="h6 fw-600 text-body">440 منتج</h1>
             </div>
-            <div class="container" style="border-bottom: 0.5px solid #B0B3B2;">
+            <div class="container new-come-resp">
                 <h5 class="mb-4 title-listing-product">وصل حديثا</h5>
                 <div class="row gutters-10 position-relative">
-                    <div class="col">
-                        <div class="aiz-carousel dots-inside-bottom mobile-img-auto-height" data-arrows="true" data-dots="true" data-autoplay="true">
-                            <div class="col p-0 mb-3">
-                                <div class="aiz-carousel dots-inside-bottom mobile-img-auto-height" data-arrows="true" data-dots="true" data-autoplay="true">
-                                    <div class="carousel-box">
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                        <a href="" class="col-6 d-inline-block mb-2" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;">
-                                            فساتين سهرة
-                                        </a>
-                                    </div>
-                                </div>
+                    <div class="col-12">
+                        <div class="aiz-carousel gutters-10 half-outside-arrow" data-xl-items="9" data-lg-items="7"  data-md-items="5" data-sm-items="4" data-arrows='true' style="margin-bottom: 20px">
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
+                            </div>
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
+                            </div>
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
+                            </div>
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
+                            </div>
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
+                            </div>
+                            <div class="carousel-box">
+                                <a href="" class="d-inline-block mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222; width: fit-content;text-align: center;">
+                                    فساتين سهرة
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="size-listing-product">
-                    <div class="row p-2 d-flex justify-content-between">
+                    <div class="row p-2 d-flex justify-content-between" style="margin-top:10px !important">
                         <a href="" class="d-flex justify-content-center align-items-center mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222;width:calc(100% / 2 - 10px)">
                             Small
                         </a>
@@ -90,7 +90,7 @@
                             Medium
                         </a>
                     </div>
-                    <div class="row p-2 d-flex justify-content-between">
+                    <div class="row p-2 d-flex justify-content-between" style="margin-top:10px !important">
                         <a href="" class="d-flex justify-content-center align-items-center mb-0" style="background-color: rgba(176, 179, 178, .15);border:1px solid #ccc; padding:7px 12px !important; border-radius: 50px; color:#222222;width:calc(100% / 2 - 10px)">
                             Large
                         </a>

@@ -60,10 +60,11 @@
     </section>   
 </div>
 
-<div class="footer-responsive">
+<!-- <div class="footer-responsive"> -->
+<div class="">
 <div style="height:1px; background-color: rgba(204, 204, 204, 0.411); width:100%"></div>
 
-<section class="py-5 text-light footer-widget" style="background-color: white !important">
+<section class="text-light footer-widget" style="background-color: white !important;">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3 text-center text-md-left">
@@ -271,7 +272,7 @@
 <div style="width: 100%; opacity: .1; height: 1px; background-color: #ccc"></div>
 
 <section class="d-flex justify-content-center align-items-center bg-white p-3">
-    <p class="mb-0 fs-20 fw-500">جميع الحقوق محفوظة لصالح أم سي لانو @2022</p>
+    <p class="copy-right-resp mb-0 fs-20 fw-500">جميع الحقوق محفوظة لصالح أم سي لانو @2022</p>
 </section>
 
 <!-- FOOTER -->
@@ -336,16 +337,29 @@
     <div class="row align-items-center gutters-5">
         <div class="col">
             <a href="{{ route('home') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <i class="las la-home fs-20 opacity-60 {{ areActiveRoutes(['home'],'opacity-100 text-primary')}}"></i>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['home'],'opacity-100 fw-600')}}">{{ translate('Home') }}</span>
+                <img src="{{static_asset('assets/icons/home.svg')}}" alt="">
+                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['home'],'opacity-100 fw-600')}}"  style="padding-top: 10px">الرئيسية</span>
             </a>
         </div>
         <div class="col">
             <a href="{{ route('categories.all') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <i class="las la-list-ul fs-20 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 text-primary')}}"></i>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 fw-600')}}">{{ translate('Categories') }}</span>
+                <img src="{{static_asset('assets/icons/menu.svg')}}" alt="">
+                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 fw-600')}}"  style="padding-top: 10px">القائمة</span>
             </a>
         </div>
+        <div class="col">
+            <a href="{{ route('categories.all') }}" class="text-reset d-block text-center pb-2 pt-3">
+                <img src="{{static_asset('assets/icons/favorite.svg')}}" alt="">
+                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 fw-600')}}"  style="padding-top: 10px">المفضلة</span>
+            </a>
+        </div>
+        <div class="col">
+            <a href="{{ route('categories.all') }}" class="text-reset d-block text-center pb-2 pt-3">
+                <img src="{{static_asset('assets/icons/user.svg')}}" alt="">
+                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['categories.all'],'opacity-100 fw-600')}}"  style="padding-top: 10px">التسجيل</span>
+            </a>
+        </div>
+
         @php
             if(auth()->user() != null) {
                 $user_id = Auth::user()->id;
@@ -357,64 +371,18 @@
                 }
             }
         @endphp
-        <div class="col-auto">
-            <a href="{{ route('cart') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <span class="align-items-center bg-primary border border-white border-width-4 d-flex justify-content-center position-relative rounded-circle size-50px" style="margin-top: -33px;box-shadow: 0px -5px 10px rgb(0 0 0 / 15%);border-color: #fff !important;">
-                    <i class="las la-shopping-bag la-2x text-white"></i>
-                </span>
-                <span class="d-block mt-1 fs-10 fw-600 opacity-60 {{ areActiveRoutes(['cart'],'opacity-100 fw-600')}}">
-                    {{ translate('Cart') }}
-                    @php
-                        $count = (isset($cart) && count($cart)) ? count($cart) : 0;
-                    @endphp
-                    (<span class="cart-count">{{$count}}</span>)
-                </span>
-            </a>
-        </div>
+        
+
         <div class="col">
             <a href="{{ route('all-notifications') }}" class="text-reset d-block text-center pb-2 pt-3">
                 <span class="d-inline-block position-relative px-2">
-                    <i class="las la-bell fs-20 opacity-60 {{ areActiveRoutes(['all-notifications'],'opacity-100 text-primary')}}"></i>
+                    <i class="fs-24 las la-shopping-basket"></i>
                     @if(Auth::check() && count(Auth::user()->unreadNotifications) > 0)
                         <span class="badge badge-sm badge-dot badge-circle badge-primary position-absolute absolute-top-right" style="right: 7px;top: -2px;"></span>
                     @endif
                 </span>
-                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['all-notifications'],'opacity-100 fw-600')}}">{{ translate('Notifications') }}</span>
+                <span class="d-block fs-10 fw-600 opacity-60 {{ areActiveRoutes(['all-notifications'],'opacity-100 fw-600')}}" style="padding-top: 5px">العربة</span>
             </a>
-        </div>
-        <div class="col">
-        @if (Auth::check())
-            @if(isAdmin())
-                <a href="{{ route('admin.dashboard') }}" class="text-reset d-block text-center pb-2 pt-3">
-                    <span class="d-block mx-auto">
-                        @if(Auth::user()->photo != null)
-                            <img src="{{ custom_asset(Auth::user()->avatar_original)}}" class="rounded-circle size-20px">
-                        @else
-                            <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                        @endif
-                    </span>
-                    <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-                </a>
-            @else
-                <a href="javascript:void(0)" class="text-reset d-block text-center pb-2 pt-3 mobile-side-nav-thumb" data-toggle="class-toggle" data-backdrop="static" data-target=".aiz-mobile-side-nav">
-                    <span class="d-block mx-auto">
-                        @if(Auth::user()->photo != null)
-                            <img src="{{ custom_asset(Auth::user()->avatar_original)}}" class="rounded-circle size-20px">
-                        @else
-                            <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                        @endif
-                    </span>
-                    <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-                </a>
-            @endif
-        @else
-            <a href="{{ route('user.login') }}" class="text-reset d-block text-center pb-2 pt-3">
-                <span class="d-block mx-auto">
-                    <img src="{{ static_asset('assets/img/avatar-place.png') }}" class="rounded-circle size-20px">
-                </span>
-                <span class="d-block fs-10 fw-600 opacity-60">{{ translate('Account') }}</span>
-            </a>
-        @endif
         </div>
     </div>
 </div>
